@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimbab Trio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: 'LisuBosa';
+  src: url('LisuBosa.ttf');
+}
+
+:root{
+  --judul:'Lexend Zetta', sans-serif;
+  --isi:'LisuBosa', sans-serif;
+  --kuning:#E8D58C;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{ background:#fff; }
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#c9ce8f;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  z-index:1000;
+}
+
+nav a{
+  margin-left:15px;
+  font-size:12px;
+  text-decoration:none;
+  color:black;
+  font-family:var(--isi);
+}
+
+/* HERO */
+.hero-bg{
+  height:100svh;
+  background:
+  linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+  url('hero.jpeg') center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.hero-content img{
+  width:180px;
+  margin-bottom:20px;
+  border-radius:50%;
+  background:white;
+  padding:10px;
+}
+
+.hero-bg h1{
+  color:white;
+  font-family:var(--judul);
+  font-size: clamp(26px, 7vw, 42px);
+}
+
+.hero-bg button{
+  margin-top:20px;
+  padding:14px 24px;
+  background:#c9ce8f;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* SECTION */
+.full{
+  padding:100px 20px 60px;
+  display:flex;
+  justify-content:center;
+}
+
+.inner{
+  max-width:1100px;
+  width:100%;
+  text-align:center;
+}
+
+.inner h2{
+  margin-bottom:25px;
+  font-family:var(--judul);
+}
+
+/* TENTANG */
+.tentang-box{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  align-items:center;
+}
+
+/* WHY */
+.flex{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  margin-top:10px;
+}
+
+.card{
+  background:var(--kuning);
+  padding:15px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+/* PRODUCT */
+.product-card{
+  max-width:250px;
+  margin:20px auto 0;
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.label{
+  background:var(--kuning);
+  padding:8px;
+}
+
+/* FORM */
+form{
+  max-width:300px;
+  margin:auto;
+  background:var(--kuning);
+  padding:20px;
+  border-radius:10px;
+}
+
+input{
+  width:100%;
+  margin:6px 0;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+}
+
+form button{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border:none;
+  border-radius:8px;
+  background:#6e6542;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* TESTI */
+.testi-container{ overflow:hidden; }
+.testi-track{ display:flex; transition:0.5s; }
+.testi{
+  min-width:100%;
+  display:flex;
+  justify-content:center;
+}
+.testi-box{
+  font-size: clamp(16px, 3vw, 20px);
+  padding:25px;
+  background:white;
+  border-radius:12px;
+}
+
+/* DOT */
+.dots{ margin-top:10px; }
+.dot{
+  height:8px;
+  width:8px;
+  margin:0 4px;
+  display:inline-block;
+  background:#ccc;
+  border-radius:50%;
+}
+.dot.active{ background:#333; }
+
+/* FOOTER */
+footer{
+  background:black;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+footer img{
+  width:80px;
+  margin-bottom:10px;
+  border-radius:50%;
+  background:white;
+  padding:5px;
+}
+
+/* ANIMATION */
+.fade-up{
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.8s;
+}
+.fade-up.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* LAPTOP */
+@media (min-width:768px){
+  .tentang-box{
+    flex-direction:row;
+    justify-content:space-between;
+    text-align:left;
+  }
+  .flex{
+    flex-direction:row;
+    justify-content:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <b>KIMBAB TRIO</b>
+  <div>
+    <a href="#tentang">Tentang</a>
+    <a href="#produk">Produk</a>
+    <a href="#testimoni">Testimoni</a>
+  </div>
+</nav>
+
+<section class="hero-bg">
+  <div class="hero-content">
+    <img src="logotrio.jpeg">
+    <h1>LAGI LAPER?<br>KIMBAB LAH SOLUSINYA!</h1>
+    <button onclick="scrollToOrder()">BELI SEKARANG</button>
+  </div>
+</section>
+
+<section id="tentang" class="full fade-up">
+  <div class="inner tentang-box">
+    <div>
+      <h2>TENTANG KAMI</h2>
+      <p>NIKMATI MAKANAN KHAS KOREA HANYA DI KIMBAB TRIO</p>
+      <p>Kimbab adalah makanan khas korea berupa nasi berbumbu minyak wijen yang digulung dengan rumput laut kering.</p>
+    </div>
+    <img src="Kimbab.png" width="250">
+  </div>
+</section>
+
+<section class="full fade-up">
+  <div class="inner">
+    <h2>WHY CHOOSE US</h2>
+    <div class="flex">
+      <div class="card">Fresh dan Higienis</div>
+      <div class="card">Bahan Berkualitas</div>
+      <div class="card">Harga Terjangkau</div>
+    </div>
+  </div>
+</section>
+
+<section id="produk" class="full fade-up">
+  <div class="inner">
+    <h2>PRODUCT</h2>
+    <div class="product-card">
+      <div class="label">Isi 4</div>
+      <img src="Product.png">
+      <div class="label">Rp10.000</div>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="full fade-up">
+  <div class="inner">
+    <h2>PESAN</h2>
+    <form onsubmit="kirimWA(event)">
+      <input type="text" id="nama" placeholder="Nama" required>
+      <input type="text" id="lokasi" placeholder="Lokasi" required>
+      <input type="number" id="porsi" placeholder="Porsi" min="1" required>
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+</section>
+
+<section id="testimoni" class="full fade-up">
+  <div class="inner">
+    <h2>TESTIMONI</h2>
+
+    <div class="testi-container">
+      <div class="testi-track" id="track">
+        <div class="testi"><div class="testi-box">Enak banget!</div></div>
+        <div class="testi"><div class="testi-box">Nagih parah!</div></div>
+        <div class="testi"><div class="testi-box">Wajib coba!</div></div>
+      </div>
+    </div>
+
+    <div class="dots" id="dots"></div>
+  </div>
+</section>
+
+<footer>
+  <img src="logotrio.jpeg">
+  <p>2026 Kimbab Trio</p>
+</footer>
+
+<script>
+function scrollToOrder(){
+  document.getElementById("order").scrollIntoView({behavior:"smooth"});
+}
+
+function kirimWA(e){
+  e.preventDefault();
+
+  let nama = document.getElementById("nama").value;
+  let lokasi = document.getElementById("lokasi").value;
+  let porsi = document.getElementById("porsi").value;
+
+  let pesan = encodeURIComponent(
+    `Halo, saya mau pesan:\nNama: ${nama}\nLokasi: ${lokasi}\nPorsi: ${porsi}`
+  );
+
+  window.open("https://wa.me/6287859660682?text=" + pesan);
+}
+
+/* slider */
+let index = 0;
+const track = document.getElementById("track");
+const total = document.querySelectorAll(".testi").length;
+const dotsContainer = document.getElementById("dots");
+
+for(let i=0;i<total;i++){
+  let d=document.createElement("span");
+  d.classList.add("dot");
+  if(i===0)d.classList.add("active");
+  dotsContainer.appendChild(d);
+}
+
+const dots=document.querySelectorAll(".dot");
+
+setInterval(()=>{
+  index++;
+  if(index>=total) index=0;
+  track.style.transform=`translateX(-${index*100}%)`;
+
+  dots.forEach(d=>d.classList.remove("active"));
+  dots[index].classList.add("active");
+},3000);
+
+/* fade up */
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".fade-up").forEach(el=>{
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
